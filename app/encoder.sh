@@ -1,8 +1,8 @@
-#!bin/bash
+#!/bin/bash
 # script for bladeRF DVBT transmitter
 # parameters
 
-FREQUENCY=437000000
+FREQUENCY=842000000
 
 BANDWIDTH=6
 # scale output to rms +- 1000

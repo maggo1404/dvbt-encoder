@@ -35,7 +35,7 @@ CPPFLAGS := -Wall -Wextra -Wno-unused-parameter \
 		  -I$(INC_DIR) \
 		  -march=native -O3 -ggdb3 
 
-LDFLAGS := -fPIC -lfftw3f_omp
+LDFLAGS := -fPIC -lm ../fftw3-3.3.3/.libs/libfftw3f.a
 
 # Default install prefix
 INSTALL_PREFIX ?= /usr
@@ -80,7 +80,7 @@ libdvbtenc.pc: shared
 	@echo "Cflags: -I$$""{includedir}"  >> $@
 
 install: shared libdvbtenc.pc
-	cp -P lib/* $(INSTALL_PREFIX)/lib64
+	cp -P lib/* $(INSTALL_PREFIX)/lib
 	cp include/* $(INSTALL_PREFIX)/include
 	if [ -d $(INSTALL_PREFIX)/share/pkgconfig ]; then \
 		cp libdvbtenc.pc $(INSTALL_PREFIX)/share/pkgconfig/ ; \
